@@ -1,8 +1,11 @@
-# Whitelist: only the built page and the deploy workflow are published.
-# build.js, site.config.js, _src and the raw client photographs stay local
-# (the site-security gate flags them as S1 if they are served or public).
+# Whitelist: only the built site and the deploy workflow are published.
+# build.js, generate.js, site.config.js, _src, _live, content, _source, the reports and the
+# raw client photographs and clips stay local (the site-security gate flags them as S1 if
+# they are served or public).
 *
 !.gitignore
 !.github/
 !.github/**
 !index.html
+!_site/
+!_site/**
