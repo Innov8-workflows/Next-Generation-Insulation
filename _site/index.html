@@ -219,6 +219,8 @@ header.nav{position:sticky;top:0;z-index:60;background:var(--ink);border-bottom:
 .hero-clip{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;z-index:0;transition:opacity .9s ease}
 .hero-clip.under{opacity:1;z-index:1}
 .hero-clip.top{opacity:1;z-index:2}
+.hero-ai-tag{position:absolute;left:16px;bottom:16px;z-index:3;font-family:var(--display);font-weight:700;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(var(--ink-rgb),.7);padding:6px 12px;border-radius:999px;pointer-events:none;opacity:0;transition:opacity .6s ease}
+.hero-media:has(.hc-ai.top) ~ .hat-ai,.hero-media:has(.hc-anim.top) ~ .hat-anim{opacity:1}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.5s ease}
 .hero-slide.on{opacity:1}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--ink-rgb),.62) 0%,rgba(var(--ink-rgb),.48) 45%,rgba(var(--ink-rgb),.84) 100%);z-index:1}
@@ -274,6 +276,7 @@ header.nav{position:sticky;top:0;z-index:60;background:var(--ink);border-bottom:
 .case:hover .case-frame{transform:rotate(0)}
 .case-frame video{width:100%;height:100%;object-fit:cover;display:block;background:var(--ink-1)}
 .case--wide .case-frame{max-width:560px;aspect-ratio:4/3}
+.case--169 .case-frame{aspect-ratio:16/9}
 .case-badge{position:absolute;top:14px;left:14px;z-index:2;font-family:var(--display);font-weight:700;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(var(--ink-rgb),.7);padding:6px 12px;border-radius:50px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
 .case-body .eyebrow{margin-bottom:10px}
 .case-body h3{font-size:clamp(1.5rem,2.7vw,2.05rem);font-weight:800;line-height:1.15;margin-bottom:14px}
@@ -599,7 +602,11 @@ footer h4{font-family:var(--display);font-weight:700;color:var(--brand-lt);font-
 <section class="hero" id="top">
   <div class="hero-media" id="heroMedia" style="background-image:url('/Next-Generation-Insulation/assets/home/h1-poster.webp')">
     <video class="hero-clip top" src="/Next-Generation-Insulation/assets/home/h1.mp4" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
+    <video class="hero-clip hc-ai" src="/Next-Generation-Insulation/assets/home/h2.mp4" muted playsinline preload="metadata" aria-hidden="true"></video>
+    <video class="hero-clip hc-anim" src="/Next-Generation-Insulation/assets/home/h3.mp4" muted playsinline preload="metadata" aria-hidden="true"></video>
   </div>
+  <span class="hero-ai-tag hat-ai" aria-hidden="true">Illustration</span>
+  <span class="hero-ai-tag hat-anim" aria-hidden="true">Animated from our own job photos</span>
   <div class="hero-content">
     <div class="wrap">
 
@@ -744,22 +751,18 @@ footer h4{font-family:var(--display);font-weight:700;color:var(--brand-lt);font-
         </div>
       </article>
 
-      <article class="case case--slider case--wide">
+      <article class="case case--video case--wide case--169">
         <div class="case-media">
-          <div class="case-frame ba-slider" id="baSlider2" style="--pos:50%">
-            <img class="ba-after" src="/Next-Generation-Insulation/assets/home/t2_after.webp" alt="After: The same loft finished, with deep mineral wool insulation across the whole floor" loading="lazy" draggable="false">
-            <div class="ba-before"><img src="/Next-Generation-Insulation/assets/home/t2_before.webp" alt="Before: New rolls of loft insulation laid out across the loft ready to fit" loading="lazy" draggable="false"></div>
-            <span class="ba-tag ba-tag-b">Before</span>
-            <span class="ba-tag ba-tag-a">After</span>
-            <div class="ba-line" aria-hidden="true"><span class="ba-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span></div>
-            <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after: drag left for the after photo, right for the before">
+          <div class="case-frame">
+            <video src="/Next-Generation-Insulation/assets/home/ba2.mp4" poster="/Next-Generation-Insulation/assets/home/ba2-poster.webp" muted loop playsinline preload="none" aria-label="Animated illustration: spray foam pulled off the rafters of a loft and cleared away"></video>
+            <span class="ba-tag ba-tag-b">Illustration</span>
           </div>
         </div>
         <div class="case-body">
-          <span class="eyebrow">Loft Insulation</span>
-          <h3>A Full Loft, Laid to Depth</h3>
-          <p>The rolls went in on the first day and were laid across the whole loft floor, around the struts and up to the eaves. The finished loft carries an even, deep layer from the gable wall to the hatch.</p>
-          <p class="ba-hint">Drag the slider to compare the before and after.</p>
+          <span class="eyebrow">Spray Foam Removal</span>
+          <h3>Spray Foam Off the Rafters</h3>
+          <p>Spray foam under the roof tiles often worries mortgage lenders and surveyors. We take it off carefully by hand, clean the rafters fully and photograph every stage, so the timbers can be checked and you have the paperwork your surveyor or lender asks for.</p>
+          <p class="ba-hint">An AI illustration of a strip-out, made from a photo of one of our own loft jobs.</p>
         </div>
       </article>
 
