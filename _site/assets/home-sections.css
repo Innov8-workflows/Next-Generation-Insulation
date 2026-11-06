@@ -116,6 +116,7 @@ a.as-stat:hover span{color:var(--ink)}
 @media(max-width:860px){.proof-list,.area-svc-grid{grid-template-columns:1fr}}
 @media(max-width:560px){.town-grid{grid-template-columns:1fr}}
 .gov-src{font-size:.86rem;color:var(--muted);margin-top:-4px}
+.gov-checked{margin-top:10px;font-size:.9rem;opacity:.8}
 .gov-src a{color:var(--muted)}
 .lender-list{columns:2;column-gap:28px}
 @media(max-width:520px){.lender-list{columns:1}}
