@@ -40,6 +40,7 @@ a.as-stat:hover span{color:var(--ink)}
 .av-list li{display:flex;gap:18px;align-items:flex-start}
 .av-ic{width:48px;height:48px;border-radius:10px;background:#fff;flex:none;display:flex;align-items:center;justify-content:center}
 .av-ic svg{width:24px;height:24px;color:var(--ink)}
+.acc-more{display:flex;justify-content:center;margin-top:34px}
 .av-list h3{font-family:var(--display);font-size:1.2rem;font-weight:800;text-transform:uppercase;margin:0 0 4px;color:#fff}
 .av-list p{color:var(--on-ink-2);font-size:.95rem;margin:0}
 @media(max-width:960px){.as-grid,.ad-grid,.av-grid{grid-template-columns:1fr;gap:34px}.ad-photo{position:static;aspect-ratio:16/10}.av-head{position:static}}
@@ -120,3 +121,42 @@ a.as-stat:hover span{color:var(--ink)}
 .gov-src a{color:var(--muted)}
 .lender-list{columns:2;column-gap:28px}
 @media(max-width:520px){.lender-list{columns:1}}
+.aw-schemes .h-sec,.aw-scores .h-sec,.aw-cert .h-sec{color:var(--ink)}
+.aw-lede{font-size:1.08rem;color:var(--ink);margin:16px 0 12px}
+.aw-note{color:var(--muted);margin:0 0 6px}
+.aw-dl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:22px 0 30px;border-top:1px solid var(--line)}
+.aw-dl div{padding:14px 12px 14px 0;border-bottom:1px solid var(--line)}
+.aw-dl dt{font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.aw-dl dd{font-weight:700;color:var(--ink);margin:0}
+.aw-schemes{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.aw-schemes .eyebrow,.aw-scores .eyebrow,.aw-cert .eyebrow,.aw-schemes .lead,.aw-scores .lead{color:var(--muted)}
+.aw-list{display:grid;gap:18px;max-width:980px;margin-top:44px}
+.aw-row{display:grid;grid-template-columns:150px 1fr;gap:34px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:30px 34px}
+.aw-logo{display:flex;align-items:center;justify-content:center;aspect-ratio:1;background:var(--paper-2);border-radius:var(--r)}
+.aw-logo img{width:auto;height:72%;object-fit:contain}
+.aw-row h3{font-family:var(--display);font-size:1.35rem;font-weight:800;text-transform:uppercase;color:var(--ink)}
+.aw-stat{font-family:var(--display);font-weight:700;color:var(--brand-dp);margin:4px 0 10px}
+.aw-row p{color:var(--muted);font-size:.95rem}
+.aw-facts{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin:14px 0 16px;padding:0}
+.aw-facts li{display:flex;align-items:center;gap:7px;font-size:.9rem;font-weight:600;color:var(--ink)}
+.aw-facts svg{width:16px;height:16px;flex:none;color:var(--brand-dp)}
+.aw-link{display:inline-flex;align-items:center;gap:7px;font-family:var(--display);font-weight:700;font-size:.9rem;color:var(--ink);border-bottom:1.5px solid var(--ink);padding-bottom:2px}
+.aw-link svg{width:15px;height:15px}
+.aw-cert{background:var(--paper)}
+.aw-cert-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:60px;align-items:center}
+.aw-cert-img{display:block;max-width:420px;width:100%;justify-self:center;border-radius:6px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 70px -36px rgba(0,0,0,.55);transition:transform .25s}
+.aw-cert-img:hover{transform:translateY(-4px)}
+.aw-cert-img img{display:block;width:100%;height:auto}
+.aw-scores{background:var(--paper-2);border-top:1px solid var(--line)}
+.aw-scores .rev-score{margin-top:30px}
+.aw-scores .see-all{margin-top:30px;display:flex;justify-content:center}
+@media(max-width:960px){.aw-cert-grid{grid-template-columns:1fr;gap:36px}}
+@media(max-width:700px){.aw-row{grid-template-columns:1fr;gap:18px;padding:24px 20px}.aw-logo{width:110px}.aw-dl{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.aw-scores .rev-score{display:grid;grid-template-columns:1fr 1fr;gap:10px}.aw-scores .rev-sc{padding:10px 12px;gap:9px}.aw-scores .rev-sc b{font-size:1.3rem}.aw-scores .lbl-x{display:none}}
+.aw-schemes.aw-photo{position:relative;overflow:hidden;isolation:isolate;background:var(--ink);border-color:transparent}
+.aw-photo-bg{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center}
+.aw-photo-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(var(--ink-rgb),.80) 0%,rgba(var(--ink-rgb),.70) 50%,rgba(var(--ink-rgb),.90) 100%)}
+.aw-schemes.aw-photo .eyebrow{color:var(--brand-lt)}
+.aw-schemes.aw-photo .h-sec{color:#fff}
+.aw-schemes.aw-photo .lead{color:var(--on-ink-2,rgba(255,255,255,.82))}
+.aw-schemes.aw-photo .aw-row{border-color:transparent;box-shadow:0 22px 50px -30px rgba(0,0,0,.6)}
