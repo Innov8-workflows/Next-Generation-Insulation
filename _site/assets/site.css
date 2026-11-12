@@ -673,3 +673,8 @@ html,body{overflow-x:clip}
   .acc-strip img{width:44px;height:44px}
   .hero-award{font-size:10px;letter-spacing:.1em;padding:7px 13px}
 }
+
+.acc-strip.acc-compact .wrap{gap:16px 40px}
+.acc-compact .acc-grp{display:flex;align-items:center;justify-content:center;gap:16px 40px;flex-wrap:wrap}
+@media(min-width:681px){.acc-compact .acc-grp+.acc-grp{border-left:1px solid var(--card-line,rgba(0,0,0,.15));padding-left:40px}}
+@media(max-width:680px){.acc-strip.acc-compact{padding-block:14px}.acc-strip.acc-compact .wrap{flex-direction:column;gap:10px}.acc-compact .acc-grp{flex-wrap:nowrap;gap:12px}.acc-strip.acc-compact .acc-strip-label{flex-basis:auto;font-size:10.5px;letter-spacing:.12em;text-align:left;white-space:nowrap}.acc-strip.acc-compact a{font-size:13.5px;gap:7px;white-space:nowrap}.acc-strip.acc-compact img{width:30px;height:30px}.acc-compact .acc-x{display:none}}
