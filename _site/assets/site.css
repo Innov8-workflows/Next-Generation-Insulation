@@ -409,6 +409,13 @@ a.rev-sc:hover{transform:translateY(-2px);border-color:var(--card-line-hi)}
 .field textarea{resize:vertical;min-height:110px}
 .f2{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
 .form .btn{width:100%;justify-content:center;margin-top:6px}
+.form .btn + .btn{margin-top:10px}
+.form .btn:disabled{opacity:.7;cursor:wait}
+.field label .opt{text-transform:none;letter-spacing:0;font-weight:500;color:var(--muted)}
+.f-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.form-status{margin-top:14px;padding:12px 14px;border-radius:10px;font-size:.92rem;font-weight:600;text-align:center}
+.form-status.is-ok{background:#E8F7EE;color:#11643A}
+.form-status.is-err{background:#FDECEA;color:#9B2A20}
 .form-note{font-size:.78rem;color:var(--muted);text-align:center;margin-top:14px;display:flex;align-items:center;justify-content:center;gap:7px}
 .form-note svg{width:15px;height:15px;color:var(--wa)}
 

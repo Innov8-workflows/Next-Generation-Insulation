@@ -94,12 +94,18 @@
   }, true);
 
   
-  document.addEventListener('submit', function (e) {
-    var f = e.target;
-    if (!window.__ngiGa || !window.gtag || !f || f.id !== 'quoteForm') return;
+  function formLead(f, how) {
+    if (!window.__ngiGa || !window.gtag || !f) return;
     var v = function (k) { return (f.elements[k] && f.elements[k].value || '').trim(); };
     if (!v('name') || !v('phone')) return;
-    window.gtag('event', 'generate_lead', { form_name: 'quote form', service: v('service'), page_path: location.pathname });
+    window.gtag('event', 'generate_lead', { form_name: 'quote form', method: how, service: v('service'), page_path: location.pathname });
+  }
+  document.addEventListener('submit', function (e) {
+    if (e.target && e.target.id === 'quoteForm') formLead(e.target, 'whatsapp');
+  }, true);
+  document.addEventListener('click', function (e) {
+    var b = e.target && e.target.closest ? e.target.closest('#cf-send-email') : null;
+    if (b && !b.disabled) formLead(b.form || document.getElementById('quoteForm'), 'email');
   }, true);
 
   function init() {

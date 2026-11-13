@@ -51,20 +51,34 @@
   }, true);
 
   
-  document.addEventListener('submit', function (e) {
-    var f = e.target;
-    if (!f || f.id !== 'quoteForm') return;
+  
+  function formLead(f, how) {
     var v = function (k) { return (f.elements[k] && f.elements[k].value || '').trim(); };
     if (!v('name') || !v('phone')) return;
+    if (how === 'email' && v('email') && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'))) return;
     var bot = f.elements.botcheck;
+    var page = location.pathname.indexOf('/contact') === 0 ? 'contact page form' : 'quote form';
     sendLead({
       type: 'Quote form',
       name: v('name'),
       phone: v('phone'),
+      email: v('email'),
       service: v('service'),
       details: v('detail'),
-      source: location.pathname.indexOf('/contact') === 0 ? 'contact page form' : 'quote form',
+      source: page + (how === 'email' ? ', sent by email' : ', sent via WhatsApp'),
       botcheck: bot && bot.checked ? 'bot' : ''
     });
+  }
+
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    if (f && f.id === 'quoteForm') formLead(f, 'whatsapp');
+  }, true);
+
+  document.addEventListener('click', function (e) {
+    var b = e.target && e.target.closest ? e.target.closest('#cf-send-email') : null;
+    if (!b || b.disabled) return;
+    var f = b.form || document.getElementById('quoteForm');
+    if (f) formLead(f, 'email');
   }, true);
 })();

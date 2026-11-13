@@ -166,6 +166,45 @@ if(document.querySelector("#quoteForm")){
     if (!win) window.location.href = url;
   });
 }
+if(document.querySelector("#cf-send-email")){
+  (function(){
+    var f = document.getElementById("quoteForm");
+    var btn = document.getElementById("cf-send-email");
+    var status = document.getElementById("cf-status");
+    var label = btn.querySelector("span");
+    var v = function(k){ return (f.elements[k] && f.elements[k].value || "").trim(); };
+    var flag = function(el){ el.focus(); el.style.borderColor = "#E4574C"; setTimeout(function(){ el.style.borderColor = ""; }, 2200); };
+    var say = function(msg, ok){ status.textContent = msg; status.className = "form-status " + (ok ? "is-ok" : "is-err"); status.hidden = false; };
+    btn.addEventListener("click", function(){
+      if (!v("name")) return flag(f.elements.name);
+      if (!v("phone")) return flag(f.elements.phone);
+      if (v("email") && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v("email"))) return flag(f.elements.email);
+      if (f.elements.botcheck.checked) return;
+      var data = {
+        access_key: "9d520ecd-3f64-4832-a306-73fb4b25fef4",
+        subject: "New quote request from the website: " + v("name"),
+        from_name: "Next Generation Insulation website",
+        name: v("name"), phone: v("phone"),
+        service: v("service") || "Not chosen",
+        message: v("detail") || "(no details given)",
+        botcheck: ""
+      };
+      if (v("email")) data.email = v("email");
+      btn.disabled = true; label.textContent = "Sending..."; status.hidden = true;
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(data)
+      }).then(function(r){ return r.json(); }).then(function(res){
+        if (!res || !res.success) throw new Error((res && res.message) || "not sent");
+        f.reset();
+        say("Thanks, your message has been sent. We'll be in touch soon.", true);
+      }).catch(function(){
+        say("Sorry, that didn't send. Please call us on 01332 480429 or use the WhatsApp button.", false);
+      }).then(function(){ btn.disabled = false; label.textContent = "Send by Email"; });
+    });
+  })();
+}
 if(document.getElementById("owGrid")){(function(){
   var items=Array.prototype.slice.call(document.querySelectorAll("#owGrid .ow-item"));
   var lb=document.getElementById("lightbox"),lbImg=document.getElementById("lbImg"),lbCap=document.getElementById("lbCap"),ci=0;
